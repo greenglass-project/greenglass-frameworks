@@ -1,0 +1,14 @@
+[Unit]
+Description=Greenglass Edge-of-network node
+After=network-online.target
+
+[Service]
+ExecStart=/bin/bash /home/pi/node.sh
+WorkingDirectory=/home/pi/node
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+User=pi
+
+[Install]
+WantedBy=multi-user.target
