@@ -1,0 +1,63 @@
+[versions]
+kotlin-version = "1.9.22"
+kotlin-coroutines-version = "1.7.3"
+kotlin-date-time-version = "0.5.0"
+kotlin-logging-version = "6.0.3"
+kotlin-serialization-json-version = "1.6.3"
+kotlin-serialization-yaml-version = "0.58.0"
+
+dokka-version = "1.9.10"
+
+jackson-version = "2.14.2"
+commons-math3-version = "3.6.1"
+guava-version = "32.0.0-android"
+
+tahu-version = "1.0.7"
+hivemq-version = "1.3.0"
+influxdb-version = "6.12.0"
+nats-version = "2.17.1"
+neo4j-version = "5.16.0"
+settings-version = "1.1.0"
+
+pi4j-version = "2.3.0"
+javalin-version = "6.1.3"
+oshi-version = "6.5.0"
+jpy-version = "0.15.0"
+
+[libraries]
+kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin-version" }
+kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin-version" }
+kotlin-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlin-coroutines-version" }
+kotlin-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime-jvm", version.ref = "kotlin-date-time-version" }
+kotlin-logging= { module = "io.github.oshai:kotlin-logging-jvm", version.ref = "kotlin-logging-version" }
+
+jackson-core = { module = "com.fasterxml.jackson.core:jackson-databind", version.ref = "jackson-version" }
+jackson-kotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin", version.ref = "jackson-version" }
+jackson-jsr310 = { module = "com.fasterxml.jackson.datatype:jackson-datatype-jsr310", version.ref = "jackson-version" }
+jackson-yaml = { module = "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml", version.ref = "jackson-version" }
+
+commons-math3 = { module = "org.apache.commons:commons-math3", version.ref = "commons-math3-version" }
+google-guava = { module = "com.google.guava:guava", version.ref = "guava-version" }
+
+tahu = { module = "org.eclipse.tahu:tahu-core", version.ref = "tahu-version" }
+hivemq = { module = "com.hivemq:hivemq-mqtt-client", version.ref = "hivemq-version" }
+settings = { module = "com.russhwolf:multiplatform-settings-no-arg", version.ref = "settings-version" }
+influxdb = { module = "com.influxdb:influxdb-client-kotlin", version.ref = "influxdb-version" }
+nats = { module = "io.nats:jnats", version.ref = "nats-version" }
+neo4j = { module = "org.neo4j:neo4j", version.ref = "neo4j-version" }
+jpy = { module = "org.jpyconsortium:jpy" , version.ref = "jpy-version" }
+
+pi4j-core = { module ="com.pi4j:pi4j-core", version.ref = "pi4j-version" }
+pi4j-pi = { module = "com.pi4j:pi4j-plugin-raspberrypi", version.ref = "pi4j-version" }
+pi4j-linuxfs = { module = "com.pi4j:pi4j-plugin-linuxfs", version.ref = "pi4j-version" }
+pi4j-pigpio = { module = "com.pi4j:pi4j-plugin-pigpio", version.ref = "pi4j-version" }
+oshi-core = { module = "com.github.oshi:oshi-core", version.ref = "oshi-version" }
+
+javalin = { module = "io.javalin:javalin", version.ref = "javalin-version" }
+kotlin-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlin-serialization-json-version" }
+kotlin-serialization-yaml = { module = "com.charleskorn.kaml:kaml", version.ref = "kotlin-serialization-yaml-version" }
+
+[plugins]
+jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin-version" }
+dokka = { id = "org.jetbrains.dokka", version.ref = "dokka-version" }
+kotlin-serialisation = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin-version" }
