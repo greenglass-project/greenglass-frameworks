@@ -39,7 +39,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
         /**
          * Creates a dependency provider for hivemq (com.hivemq:hivemq-mqtt-client)
-         * This dependency was declared in catalog libs.versions.toml
+         * This dependency was declared in catalog io.greenglass:version-catalog:0.0.2
          */
         public Provider<MinimalExternalModuleDependency> getHivemq() {
             return create("hivemq");
@@ -47,7 +47,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
         /**
          * Creates a dependency provider for influxdb (com.influxdb:influxdb-client-kotlin)
-         * This dependency was declared in catalog libs.versions.toml
+         * This dependency was declared in catalog io.greenglass:version-catalog:0.0.2
          */
         public Provider<MinimalExternalModuleDependency> getInfluxdb() {
             return create("influxdb");
@@ -55,7 +55,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
         /**
          * Creates a dependency provider for javalin (io.javalin:javalin)
-         * This dependency was declared in catalog libs.versions.toml
+         * This dependency was declared in catalog io.greenglass:version-catalog:0.0.2
          */
         public Provider<MinimalExternalModuleDependency> getJavalin() {
             return create("javalin");
@@ -63,15 +63,31 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
         /**
          * Creates a dependency provider for jpy (org.jpyconsortium:jpy)
-         * This dependency was declared in catalog libs.versions.toml
+         * This dependency was declared in catalog io.greenglass:version-catalog:0.0.2
          */
         public Provider<MinimalExternalModuleDependency> getJpy() {
             return create("jpy");
     }
 
         /**
+         * Creates a dependency provider for klogging (io.klogging:klogging-jvm)
+         * This dependency was declared in catalog io.greenglass:version-catalog:0.0.2
+         */
+        public Provider<MinimalExternalModuleDependency> getKlogging() {
+            return create("klogging");
+    }
+
+        /**
+         * Creates a dependency provider for ksp (com.google.devtools.ksp:symbol-processing-api)
+         * This dependency was declared in catalog io.greenglass:version-catalog:0.0.2
+         */
+        public Provider<MinimalExternalModuleDependency> getKsp() {
+            return create("ksp");
+    }
+
+        /**
          * Creates a dependency provider for nats (io.nats:jnats)
-         * This dependency was declared in catalog libs.versions.toml
+         * This dependency was declared in catalog io.greenglass:version-catalog:0.0.2
          */
         public Provider<MinimalExternalModuleDependency> getNats() {
             return create("nats");
@@ -79,7 +95,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
         /**
          * Creates a dependency provider for neo4j (org.neo4j:neo4j)
-         * This dependency was declared in catalog libs.versions.toml
+         * This dependency was declared in catalog io.greenglass:version-catalog:0.0.2
          */
         public Provider<MinimalExternalModuleDependency> getNeo4j() {
             return create("neo4j");
@@ -87,15 +103,23 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
         /**
          * Creates a dependency provider for settings (com.russhwolf:multiplatform-settings-no-arg)
-         * This dependency was declared in catalog libs.versions.toml
+         * This dependency was declared in catalog io.greenglass:version-catalog:0.0.2
          */
         public Provider<MinimalExternalModuleDependency> getSettings() {
             return create("settings");
     }
 
         /**
+         * Creates a dependency provider for slf4j (org.slf4j:slf4j-nop)
+         * This dependency was declared in catalog io.greenglass:version-catalog:0.0.2
+         */
+        public Provider<MinimalExternalModuleDependency> getSlf4j() {
+            return create("slf4j");
+    }
+
+        /**
          * Creates a dependency provider for tahu (org.eclipse.tahu:tahu-core)
-         * This dependency was declared in catalog libs.versions.toml
+         * This dependency was declared in catalog io.greenglass:version-catalog:0.0.2
          */
         public Provider<MinimalExternalModuleDependency> getTahu() {
             return create("tahu");
@@ -169,8 +193,16 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
         public CommonsLibraryAccessors(AbstractExternalDependencyFactory owner) { super(owner); }
 
             /**
+             * Creates a dependency provider for lang3 (org.apache.commons:commons-lang3)
+             * This dependency was declared in catalog io.greenglass:version-catalog:0.0.2
+             */
+            public Provider<MinimalExternalModuleDependency> getLang3() {
+                return create("commons.lang3");
+        }
+
+            /**
              * Creates a dependency provider for math3 (org.apache.commons:commons-math3)
-             * This dependency was declared in catalog libs.versions.toml
+             * This dependency was declared in catalog io.greenglass:version-catalog:0.0.2
              */
             public Provider<MinimalExternalModuleDependency> getMath3() {
                 return create("commons.math3");
@@ -184,7 +216,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for guava (com.google.guava:guava)
-             * This dependency was declared in catalog libs.versions.toml
+             * This dependency was declared in catalog io.greenglass:version-catalog:0.0.2
              */
             public Provider<MinimalExternalModuleDependency> getGuava() {
                 return create("google.guava");
@@ -198,7 +230,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for core (com.fasterxml.jackson.core:jackson-databind)
-             * This dependency was declared in catalog libs.versions.toml
+             * This dependency was declared in catalog io.greenglass:version-catalog:0.0.2
              */
             public Provider<MinimalExternalModuleDependency> getCore() {
                 return create("jackson.core");
@@ -206,7 +238,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for jsr310 (com.fasterxml.jackson.datatype:jackson-datatype-jsr310)
-             * This dependency was declared in catalog libs.versions.toml
+             * This dependency was declared in catalog io.greenglass:version-catalog:0.0.2
              */
             public Provider<MinimalExternalModuleDependency> getJsr310() {
                 return create("jackson.jsr310");
@@ -214,7 +246,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for kotlin (com.fasterxml.jackson.module:jackson-module-kotlin)
-             * This dependency was declared in catalog libs.versions.toml
+             * This dependency was declared in catalog io.greenglass:version-catalog:0.0.2
              */
             public Provider<MinimalExternalModuleDependency> getKotlin() {
                 return create("jackson.kotlin");
@@ -222,7 +254,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for yaml (com.fasterxml.jackson.dataformat:jackson-dataformat-yaml)
-             * This dependency was declared in catalog libs.versions.toml
+             * This dependency was declared in catalog io.greenglass:version-catalog:0.0.2
              */
             public Provider<MinimalExternalModuleDependency> getYaml() {
                 return create("jackson.yaml");
@@ -231,13 +263,14 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
     }
 
     public static class KotlinLibraryAccessors extends SubDependencyFactory {
+        private final KotlinPoetLibraryAccessors laccForKotlinPoetLibraryAccessors = new KotlinPoetLibraryAccessors(owner);
         private final KotlinSerializationLibraryAccessors laccForKotlinSerializationLibraryAccessors = new KotlinSerializationLibraryAccessors(owner);
 
         public KotlinLibraryAccessors(AbstractExternalDependencyFactory owner) { super(owner); }
 
             /**
              * Creates a dependency provider for coroutines (org.jetbrains.kotlinx:kotlinx-coroutines-core)
-             * This dependency was declared in catalog libs.versions.toml
+             * This dependency was declared in catalog io.greenglass:version-catalog:0.0.2
              */
             public Provider<MinimalExternalModuleDependency> getCoroutines() {
                 return create("kotlin.coroutines");
@@ -245,7 +278,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for datetime (org.jetbrains.kotlinx:kotlinx-datetime-jvm)
-             * This dependency was declared in catalog libs.versions.toml
+             * This dependency was declared in catalog io.greenglass:version-catalog:0.0.2
              */
             public Provider<MinimalExternalModuleDependency> getDatetime() {
                 return create("kotlin.datetime");
@@ -253,15 +286,15 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for logging (io.github.oshai:kotlin-logging-jvm)
-             * This dependency was declared in catalog libs.versions.toml
+             * This dependency was declared in catalog io.greenglass:version-catalog:0.0.2
              */
             public Provider<MinimalExternalModuleDependency> getLogging() {
                 return create("kotlin.logging");
         }
 
             /**
-             * Creates a dependency provider for reflect (org.jetbrains.kotlin:kotlin-reflect)
-             * This dependency was declared in catalog libs.versions.toml
+             * Creates a dependency provider for reflect (org.jetbrains.kotli:kotlin-reflect)
+             * This dependency was declared in catalog io.greenglass:version-catalog:0.0.2
              */
             public Provider<MinimalExternalModuleDependency> getReflect() {
                 return create("kotlin.reflect");
@@ -269,10 +302,17 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for stdlib (org.jetbrains.kotlin:kotlin-stdlib)
-             * This dependency was declared in catalog libs.versions.toml
+             * This dependency was declared in catalog io.greenglass:version-catalog:0.0.2
              */
             public Provider<MinimalExternalModuleDependency> getStdlib() {
                 return create("kotlin.stdlib");
+        }
+
+        /**
+         * Returns the group of libraries at kotlin.poet
+         */
+        public KotlinPoetLibraryAccessors getPoet() {
+            return laccForKotlinPoetLibraryAccessors;
         }
 
         /**
@@ -284,16 +324,46 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
     }
 
+    public static class KotlinPoetLibraryAccessors extends SubDependencyFactory implements DependencyNotationSupplier {
+
+        public KotlinPoetLibraryAccessors(AbstractExternalDependencyFactory owner) { super(owner); }
+
+            /**
+             * Creates a dependency provider for poet (com.squareup:javapoet)
+             * This dependency was declared in catalog io.greenglass:version-catalog:0.0.2
+             */
+            public Provider<MinimalExternalModuleDependency> asProvider() {
+                return create("kotlin.poet");
+        }
+
+            /**
+             * Creates a dependency provider for ksp (com.squareup:kotlinpoet-ksp)
+             * This dependency was declared in catalog io.greenglass:version-catalog:0.0.2
+             */
+            public Provider<MinimalExternalModuleDependency> getKsp() {
+                return create("kotlin.poet.ksp");
+        }
+
+    }
+
     public static class KotlinSerializationLibraryAccessors extends SubDependencyFactory {
 
         public KotlinSerializationLibraryAccessors(AbstractExternalDependencyFactory owner) { super(owner); }
 
             /**
              * Creates a dependency provider for json (org.jetbrains.kotlinx:kotlinx-serialization-json)
-             * This dependency was declared in catalog libs.versions.toml
+             * This dependency was declared in catalog io.greenglass:version-catalog:0.0.2
              */
             public Provider<MinimalExternalModuleDependency> getJson() {
                 return create("kotlin.serialization.json");
+        }
+
+            /**
+             * Creates a dependency provider for yaml (com.charleskorn.kaml:kaml)
+             * This dependency was declared in catalog io.greenglass:version-catalog:0.0.2
+             */
+            public Provider<MinimalExternalModuleDependency> getYaml() {
+                return create("kotlin.serialization.yaml");
         }
 
     }
@@ -304,7 +374,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for core (com.github.oshi:oshi-core)
-             * This dependency was declared in catalog libs.versions.toml
+             * This dependency was declared in catalog io.greenglass:version-catalog:0.0.2
              */
             public Provider<MinimalExternalModuleDependency> getCore() {
                 return create("oshi.core");
@@ -318,7 +388,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for core (com.pi4j:pi4j-core)
-             * This dependency was declared in catalog libs.versions.toml
+             * This dependency was declared in catalog io.greenglass:version-catalog:0.0.2
              */
             public Provider<MinimalExternalModuleDependency> getCore() {
                 return create("pi4j.core");
@@ -326,7 +396,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for linuxfs (com.pi4j:pi4j-plugin-linuxfs)
-             * This dependency was declared in catalog libs.versions.toml
+             * This dependency was declared in catalog io.greenglass:version-catalog:0.0.2
              */
             public Provider<MinimalExternalModuleDependency> getLinuxfs() {
                 return create("pi4j.linuxfs");
@@ -334,7 +404,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for pi (com.pi4j:pi4j-plugin-raspberrypi)
-             * This dependency was declared in catalog libs.versions.toml
+             * This dependency was declared in catalog io.greenglass:version-catalog:0.0.2
              */
             public Provider<MinimalExternalModuleDependency> getPi() {
                 return create("pi4j.pi");
@@ -342,7 +412,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for pigpio (com.pi4j:pi4j-plugin-pigpio)
-             * This dependency was declared in catalog libs.versions.toml
+             * This dependency was declared in catalog io.greenglass:version-catalog:0.0.2
              */
             public Provider<MinimalExternalModuleDependency> getPigpio() {
                 return create("pi4j.pigpio");
@@ -360,12 +430,15 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
         private final JacksonVersionAccessors vaccForJacksonVersionAccessors = new JacksonVersionAccessors(providers, config);
         private final JavalinVersionAccessors vaccForJavalinVersionAccessors = new JavalinVersionAccessors(providers, config);
         private final JpyVersionAccessors vaccForJpyVersionAccessors = new JpyVersionAccessors(providers, config);
+        private final KloggingVersionAccessors vaccForKloggingVersionAccessors = new KloggingVersionAccessors(providers, config);
         private final KotlinVersionAccessors vaccForKotlinVersionAccessors = new KotlinVersionAccessors(providers, config);
+        private final KspVersionAccessors vaccForKspVersionAccessors = new KspVersionAccessors(providers, config);
         private final NatsVersionAccessors vaccForNatsVersionAccessors = new NatsVersionAccessors(providers, config);
         private final Neo4jVersionAccessors vaccForNeo4jVersionAccessors = new Neo4jVersionAccessors(providers, config);
         private final OshiVersionAccessors vaccForOshiVersionAccessors = new OshiVersionAccessors(providers, config);
         private final Pi4jVersionAccessors vaccForPi4jVersionAccessors = new Pi4jVersionAccessors(providers, config);
         private final SettingsVersionAccessors vaccForSettingsVersionAccessors = new SettingsVersionAccessors(providers, config);
+        private final Slf4jVersionAccessors vaccForSlf4jVersionAccessors = new Slf4jVersionAccessors(providers, config);
         private final TahuVersionAccessors vaccForTahuVersionAccessors = new TahuVersionAccessors(providers, config);
         public VersionAccessors(ProviderFactory providers, DefaultVersionCatalog config) { super(providers, config); }
 
@@ -426,10 +499,24 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
         }
 
         /**
+         * Returns the group of versions at versions.klogging
+         */
+        public KloggingVersionAccessors getKlogging() {
+            return vaccForKloggingVersionAccessors;
+        }
+
+        /**
          * Returns the group of versions at versions.kotlin
          */
         public KotlinVersionAccessors getKotlin() {
             return vaccForKotlinVersionAccessors;
+        }
+
+        /**
+         * Returns the group of versions at versions.ksp
+         */
+        public KspVersionAccessors getKsp() {
+            return vaccForKspVersionAccessors;
         }
 
         /**
@@ -468,6 +555,13 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
         }
 
         /**
+         * Returns the group of versions at versions.slf4j
+         */
+        public Slf4jVersionAccessors getSlf4j() {
+            return vaccForSlf4jVersionAccessors;
+        }
+
+        /**
          * Returns the group of versions at versions.tahu
          */
         public TahuVersionAccessors getTahu() {
@@ -478,8 +572,16 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
     public static class CommonsVersionAccessors extends VersionFactory  {
 
+        private final CommonsLang3VersionAccessors vaccForCommonsLang3VersionAccessors = new CommonsLang3VersionAccessors(providers, config);
         private final CommonsMath3VersionAccessors vaccForCommonsMath3VersionAccessors = new CommonsMath3VersionAccessors(providers, config);
         public CommonsVersionAccessors(ProviderFactory providers, DefaultVersionCatalog config) { super(providers, config); }
+
+        /**
+         * Returns the group of versions at versions.commons.lang3
+         */
+        public CommonsLang3VersionAccessors getLang3() {
+            return vaccForCommonsLang3VersionAccessors;
+        }
 
         /**
          * Returns the group of versions at versions.commons.math3
@@ -487,6 +589,20 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
         public CommonsMath3VersionAccessors getMath3() {
             return vaccForCommonsMath3VersionAccessors;
         }
+
+    }
+
+    public static class CommonsLang3VersionAccessors extends VersionFactory  {
+
+        public CommonsLang3VersionAccessors(ProviderFactory providers, DefaultVersionCatalog config) { super(providers, config); }
+
+            /**
+             * Returns the version associated to this alias: commons.lang3.version (3.14.0)
+             * If the version is a rich version and that its not expressible as a
+             * single version string, then an empty string is returned.
+             * This version was declared in catalog io.greenglass:version-catalog:0.0.2
+             */
+            public Provider<String> getVersion() { return getVersion("commons.lang3.version"); }
 
     }
 
@@ -498,7 +614,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
              * Returns the version associated to this alias: commons.math3.version (3.6.1)
              * If the version is a rich version and that its not expressible as a
              * single version string, then an empty string is returned.
-             * This version was declared in catalog libs.versions.toml
+             * This version was declared in catalog io.greenglass:version-catalog:0.0.2
              */
             public Provider<String> getVersion() { return getVersion("commons.math3.version"); }
 
@@ -512,7 +628,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
              * Returns the version associated to this alias: dokka.version (1.9.10)
              * If the version is a rich version and that its not expressible as a
              * single version string, then an empty string is returned.
-             * This version was declared in catalog libs.versions.toml
+             * This version was declared in catalog io.greenglass:version-catalog:0.0.2
              */
             public Provider<String> getVersion() { return getVersion("dokka.version"); }
 
@@ -526,7 +642,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
              * Returns the version associated to this alias: guava.version (32.0.0-android)
              * If the version is a rich version and that its not expressible as a
              * single version string, then an empty string is returned.
-             * This version was declared in catalog libs.versions.toml
+             * This version was declared in catalog io.greenglass:version-catalog:0.0.2
              */
             public Provider<String> getVersion() { return getVersion("guava.version"); }
 
@@ -540,7 +656,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
              * Returns the version associated to this alias: hivemq.version (1.3.0)
              * If the version is a rich version and that its not expressible as a
              * single version string, then an empty string is returned.
-             * This version was declared in catalog libs.versions.toml
+             * This version was declared in catalog io.greenglass:version-catalog:0.0.2
              */
             public Provider<String> getVersion() { return getVersion("hivemq.version"); }
 
@@ -554,7 +670,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
              * Returns the version associated to this alias: influxdb.version (6.12.0)
              * If the version is a rich version and that its not expressible as a
              * single version string, then an empty string is returned.
-             * This version was declared in catalog libs.versions.toml
+             * This version was declared in catalog io.greenglass:version-catalog:0.0.2
              */
             public Provider<String> getVersion() { return getVersion("influxdb.version"); }
 
@@ -568,7 +684,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
              * Returns the version associated to this alias: jackson.version (2.14.2)
              * If the version is a rich version and that its not expressible as a
              * single version string, then an empty string is returned.
-             * This version was declared in catalog libs.versions.toml
+             * This version was declared in catalog io.greenglass:version-catalog:0.0.2
              */
             public Provider<String> getVersion() { return getVersion("jackson.version"); }
 
@@ -582,7 +698,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
              * Returns the version associated to this alias: javalin.version (6.1.3)
              * If the version is a rich version and that its not expressible as a
              * single version string, then an empty string is returned.
-             * This version was declared in catalog libs.versions.toml
+             * This version was declared in catalog io.greenglass:version-catalog:0.0.2
              */
             public Provider<String> getVersion() { return getVersion("javalin.version"); }
 
@@ -596,9 +712,23 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
              * Returns the version associated to this alias: jpy.version (0.15.0)
              * If the version is a rich version and that its not expressible as a
              * single version string, then an empty string is returned.
-             * This version was declared in catalog libs.versions.toml
+             * This version was declared in catalog io.greenglass:version-catalog:0.0.2
              */
             public Provider<String> getVersion() { return getVersion("jpy.version"); }
+
+    }
+
+    public static class KloggingVersionAccessors extends VersionFactory  {
+
+        public KloggingVersionAccessors(ProviderFactory providers, DefaultVersionCatalog config) { super(providers, config); }
+
+            /**
+             * Returns the version associated to this alias: klogging.version (0.5.11)
+             * If the version is a rich version and that its not expressible as a
+             * single version string, then an empty string is returned.
+             * This version was declared in catalog io.greenglass:version-catalog:0.0.2
+             */
+            public Provider<String> getVersion() { return getVersion("klogging.version"); }
 
     }
 
@@ -607,6 +737,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
         private final KotlinCoroutinesVersionAccessors vaccForKotlinCoroutinesVersionAccessors = new KotlinCoroutinesVersionAccessors(providers, config);
         private final KotlinDateVersionAccessors vaccForKotlinDateVersionAccessors = new KotlinDateVersionAccessors(providers, config);
         private final KotlinLoggingVersionAccessors vaccForKotlinLoggingVersionAccessors = new KotlinLoggingVersionAccessors(providers, config);
+        private final KotlinPoetVersionAccessors vaccForKotlinPoetVersionAccessors = new KotlinPoetVersionAccessors(providers, config);
         private final KotlinSerializationVersionAccessors vaccForKotlinSerializationVersionAccessors = new KotlinSerializationVersionAccessors(providers, config);
         public KotlinVersionAccessors(ProviderFactory providers, DefaultVersionCatalog config) { super(providers, config); }
 
@@ -614,7 +745,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
              * Returns the version associated to this alias: kotlin.version (1.9.22)
              * If the version is a rich version and that its not expressible as a
              * single version string, then an empty string is returned.
-             * This version was declared in catalog libs.versions.toml
+             * This version was declared in catalog io.greenglass:version-catalog:0.0.2
              */
             public Provider<String> getVersion() { return getVersion("kotlin.version"); }
 
@@ -640,6 +771,13 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
         }
 
         /**
+         * Returns the group of versions at versions.kotlin.poet
+         */
+        public KotlinPoetVersionAccessors getPoet() {
+            return vaccForKotlinPoetVersionAccessors;
+        }
+
+        /**
          * Returns the group of versions at versions.kotlin.serialization
          */
         public KotlinSerializationVersionAccessors getSerialization() {
@@ -656,7 +794,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
              * Returns the version associated to this alias: kotlin.coroutines.version (1.7.3)
              * If the version is a rich version and that its not expressible as a
              * single version string, then an empty string is returned.
-             * This version was declared in catalog libs.versions.toml
+             * This version was declared in catalog io.greenglass:version-catalog:0.0.2
              */
             public Provider<String> getVersion() { return getVersion("kotlin.coroutines.version"); }
 
@@ -684,7 +822,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
              * Returns the version associated to this alias: kotlin.date.time.version (0.5.0)
              * If the version is a rich version and that its not expressible as a
              * single version string, then an empty string is returned.
-             * This version was declared in catalog libs.versions.toml
+             * This version was declared in catalog io.greenglass:version-catalog:0.0.2
              */
             public Provider<String> getVersion() { return getVersion("kotlin.date.time.version"); }
 
@@ -698,15 +836,30 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
              * Returns the version associated to this alias: kotlin.logging.version (6.0.3)
              * If the version is a rich version and that its not expressible as a
              * single version string, then an empty string is returned.
-             * This version was declared in catalog libs.versions.toml
+             * This version was declared in catalog io.greenglass:version-catalog:0.0.2
              */
             public Provider<String> getVersion() { return getVersion("kotlin.logging.version"); }
+
+    }
+
+    public static class KotlinPoetVersionAccessors extends VersionFactory  {
+
+        public KotlinPoetVersionAccessors(ProviderFactory providers, DefaultVersionCatalog config) { super(providers, config); }
+
+            /**
+             * Returns the version associated to this alias: kotlin.poet.version (1.16.0)
+             * If the version is a rich version and that its not expressible as a
+             * single version string, then an empty string is returned.
+             * This version was declared in catalog io.greenglass:version-catalog:0.0.2
+             */
+            public Provider<String> getVersion() { return getVersion("kotlin.poet.version"); }
 
     }
 
     public static class KotlinSerializationVersionAccessors extends VersionFactory  {
 
         private final KotlinSerializationJsonVersionAccessors vaccForKotlinSerializationJsonVersionAccessors = new KotlinSerializationJsonVersionAccessors(providers, config);
+        private final KotlinSerializationYamlVersionAccessors vaccForKotlinSerializationYamlVersionAccessors = new KotlinSerializationYamlVersionAccessors(providers, config);
         public KotlinSerializationVersionAccessors(ProviderFactory providers, DefaultVersionCatalog config) { super(providers, config); }
 
         /**
@@ -714,6 +867,13 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
          */
         public KotlinSerializationJsonVersionAccessors getJson() {
             return vaccForKotlinSerializationJsonVersionAccessors;
+        }
+
+        /**
+         * Returns the group of versions at versions.kotlin.serialization.yaml
+         */
+        public KotlinSerializationYamlVersionAccessors getYaml() {
+            return vaccForKotlinSerializationYamlVersionAccessors;
         }
 
     }
@@ -726,9 +886,37 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
              * Returns the version associated to this alias: kotlin.serialization.json.version (1.6.3)
              * If the version is a rich version and that its not expressible as a
              * single version string, then an empty string is returned.
-             * This version was declared in catalog libs.versions.toml
+             * This version was declared in catalog io.greenglass:version-catalog:0.0.2
              */
             public Provider<String> getVersion() { return getVersion("kotlin.serialization.json.version"); }
+
+    }
+
+    public static class KotlinSerializationYamlVersionAccessors extends VersionFactory  {
+
+        public KotlinSerializationYamlVersionAccessors(ProviderFactory providers, DefaultVersionCatalog config) { super(providers, config); }
+
+            /**
+             * Returns the version associated to this alias: kotlin.serialization.yaml.version (0.58.0)
+             * If the version is a rich version and that its not expressible as a
+             * single version string, then an empty string is returned.
+             * This version was declared in catalog io.greenglass:version-catalog:0.0.2
+             */
+            public Provider<String> getVersion() { return getVersion("kotlin.serialization.yaml.version"); }
+
+    }
+
+    public static class KspVersionAccessors extends VersionFactory  {
+
+        public KspVersionAccessors(ProviderFactory providers, DefaultVersionCatalog config) { super(providers, config); }
+
+            /**
+             * Returns the version associated to this alias: ksp.version (1.9.23-1.0.20)
+             * If the version is a rich version and that its not expressible as a
+             * single version string, then an empty string is returned.
+             * This version was declared in catalog io.greenglass:version-catalog:0.0.2
+             */
+            public Provider<String> getVersion() { return getVersion("ksp.version"); }
 
     }
 
@@ -740,7 +928,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
              * Returns the version associated to this alias: nats.version (2.17.1)
              * If the version is a rich version and that its not expressible as a
              * single version string, then an empty string is returned.
-             * This version was declared in catalog libs.versions.toml
+             * This version was declared in catalog io.greenglass:version-catalog:0.0.2
              */
             public Provider<String> getVersion() { return getVersion("nats.version"); }
 
@@ -754,7 +942,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
              * Returns the version associated to this alias: neo4j.version (5.16.0)
              * If the version is a rich version and that its not expressible as a
              * single version string, then an empty string is returned.
-             * This version was declared in catalog libs.versions.toml
+             * This version was declared in catalog io.greenglass:version-catalog:0.0.2
              */
             public Provider<String> getVersion() { return getVersion("neo4j.version"); }
 
@@ -768,7 +956,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
              * Returns the version associated to this alias: oshi.version (6.5.0)
              * If the version is a rich version and that its not expressible as a
              * single version string, then an empty string is returned.
-             * This version was declared in catalog libs.versions.toml
+             * This version was declared in catalog io.greenglass:version-catalog:0.0.2
              */
             public Provider<String> getVersion() { return getVersion("oshi.version"); }
 
@@ -782,7 +970,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
              * Returns the version associated to this alias: pi4j.version (2.3.0)
              * If the version is a rich version and that its not expressible as a
              * single version string, then an empty string is returned.
-             * This version was declared in catalog libs.versions.toml
+             * This version was declared in catalog io.greenglass:version-catalog:0.0.2
              */
             public Provider<String> getVersion() { return getVersion("pi4j.version"); }
 
@@ -796,9 +984,23 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
              * Returns the version associated to this alias: settings.version (1.1.0)
              * If the version is a rich version and that its not expressible as a
              * single version string, then an empty string is returned.
-             * This version was declared in catalog libs.versions.toml
+             * This version was declared in catalog io.greenglass:version-catalog:0.0.2
              */
             public Provider<String> getVersion() { return getVersion("settings.version"); }
+
+    }
+
+    public static class Slf4jVersionAccessors extends VersionFactory  {
+
+        public Slf4jVersionAccessors(ProviderFactory providers, DefaultVersionCatalog config) { super(providers, config); }
+
+            /**
+             * Returns the version associated to this alias: slf4j.version (2.0.13)
+             * If the version is a rich version and that its not expressible as a
+             * single version string, then an empty string is returned.
+             * This version was declared in catalog io.greenglass:version-catalog:0.0.2
+             */
+            public Provider<String> getVersion() { return getVersion("slf4j.version"); }
 
     }
 
@@ -810,7 +1012,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
              * Returns the version associated to this alias: tahu.version (1.0.7)
              * If the version is a rich version and that its not expressible as a
              * single version string, then an empty string is returned.
-             * This version was declared in catalog libs.versions.toml
+             * This version was declared in catalog io.greenglass:version-catalog:0.0.2
              */
             public Provider<String> getVersion() { return getVersion("tahu.version"); }
 
@@ -829,15 +1031,21 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a plugin provider for dokka to the plugin id 'org.jetbrains.dokka'
-             * This plugin was declared in catalog libs.versions.toml
+             * This plugin was declared in catalog io.greenglass:version-catalog:0.0.2
              */
             public Provider<PluginDependency> getDokka() { return createPlugin("dokka"); }
 
             /**
              * Creates a plugin provider for jvm to the plugin id 'org.jetbrains.kotlin.jvm'
-             * This plugin was declared in catalog libs.versions.toml
+             * This plugin was declared in catalog io.greenglass:version-catalog:0.0.2
              */
             public Provider<PluginDependency> getJvm() { return createPlugin("jvm"); }
+
+            /**
+             * Creates a plugin provider for ksp to the plugin id 'com.google.devtools.ksp'
+             * This plugin was declared in catalog io.greenglass:version-catalog:0.0.2
+             */
+            public Provider<PluginDependency> getKsp() { return createPlugin("ksp"); }
 
         /**
          * Returns the group of plugins at plugins.kotlin
@@ -854,7 +1062,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a plugin provider for kotlin.serialisation to the plugin id 'org.jetbrains.kotlin.plugin.serialization'
-             * This plugin was declared in catalog libs.versions.toml
+             * This plugin was declared in catalog io.greenglass:version-catalog:0.0.2
              */
             public Provider<PluginDependency> getSerialisation() { return createPlugin("kotlin.serialisation"); }
 

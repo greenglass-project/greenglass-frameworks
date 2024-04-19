@@ -1,4 +1,4 @@
 subprojects {
-    group = "io.greenglass"
+    group = "io.greenglass.host"
     version = "0.0.2"
 }
