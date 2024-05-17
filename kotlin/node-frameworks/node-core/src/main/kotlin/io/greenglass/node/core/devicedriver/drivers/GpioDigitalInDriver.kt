@@ -1,12 +1,20 @@
+/******************************************************************************
+ *  Copyright 2024 Greenglass Project
+ *
+ *  Use of this source code is governed by an MIT-style
+ *  license that can be found in the LICENSE file or at
+ *  https://opensource.org/licenses/MIT.
+ *
+ *****************************************************************************/
 package io.greenglass.node.core.devicedriver.drivers
 
 import io.greenglass.node.core.devicedriver.DriverModule
+import io.greenglass.node.core.devicedriver.ReadMetricFunction
 
 import io.greenglass.node.core.devicedriver.config.DriverConfig
 import io.greenglass.node.core.devicedriver.config.GpioDigitalInConfig
 import io.greenglass.node.core.services.*
 import io.greenglass.node.sparkplug.datatypes.MetricValue
-import io.klogging.NoCoLogger
 import io.klogging.NoCoLogging
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -29,7 +37,7 @@ class GpioDigitalInDriver(name : String,
 
     private val inputState = MutableStateFlow(false)
 
-    private lateinit var state : io.greenglass.node.core.devicedriver.ReadMetricFunction
+    private lateinit var state : ReadMetricFunction
     var job : Job? = null
 
     init {
@@ -43,13 +51,13 @@ class GpioDigitalInDriver(name : String,
     }
 
     override suspend fun initialise() = coroutineScope {
-        state = object : io.greenglass.node.core.devicedriver.ReadMetricFunction(this@GpioDigitalInDriver, "State") {}
+        state = object : ReadMetricFunction(this@GpioDigitalInDriver, "State") {}
 
-        val ecEventFlow = inputState
+        val stateEventFlow = inputState
             .asSharedFlow()
             .transform { e -> emit(Json.encodeToString(BoolValue(e))) }
             .stateIn(backgroundScope)
-        webService.addEventPublisher("/driver/$name/state", ecEventFlow)
+        webService.addEventPublisher("/driver/$name/state", stateEventFlow)
     }
 
     override suspend fun readAllMetrics(): List<io.greenglass.node.core.devicedriver.DriverFunctionMetricValue> =
@@ -70,8 +78,6 @@ class GpioDigitalInDriver(name : String,
     override fun stopUpdates() {
         job?.cancel()
         device.unSubscribe()    }
-
-
 
     companion object {
         val type: String = "gpio_digital_in"

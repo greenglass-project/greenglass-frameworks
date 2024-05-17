@@ -5,7 +5,7 @@ import org.neo4j.graphdb.*
 import org.neo4j.graphdb.traversal.Evaluation
 import org.neo4j.graphdb.traversal.Evaluator
 import org.neo4j.graphdb.traversal.Uniqueness
-
+import io.greenglass.host.application.error.Result
 fun getOneNodeWithRelationships(
     node1: Node,
     rel1: RelationshipType,
@@ -134,3 +134,5 @@ fun Transaction.findPath(nodeA : Node, nodeB : Node, vararg rels : RelationshipT
 
         return td.traverse(nodeA).nodes().toList()
 }
+
+

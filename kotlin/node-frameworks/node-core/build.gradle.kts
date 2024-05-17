@@ -52,6 +52,7 @@ dependencies {
 	implementation(libs.settings)
 	implementation(libs.javalin)
 	implementation(libs.oshi.core)
+	implementation(libs.jmdns)
 
 	testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
 	testImplementation("org.junit.jupiter:junit-jupiter-engine:5.9.2")

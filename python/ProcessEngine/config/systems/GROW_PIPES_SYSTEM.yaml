@@ -1,0 +1,174 @@
+systemId : "GROW_PIPES_SYSTEM"
+name : "Grow Pipes"
+description : "Automated vertical grow pipes nft system"
+
+nodes :
+  - nodeName: "WATER_CONTROL_NODE"
+    type : "WATER_CONTROL"
+    description : "pH and EC levels"
+
+  - nodeName: "WATER_PUMPS_NODE"
+    type : "WATER_MANAGEMENT"
+    description : "Water level and circulation"
+
+  - nodeName: "LIGHTS_CONTROLLER"
+    type : "3_RELAYS"
+    description : "Lights"
+
+valueProviders :
+  - name : "SETPOINT_PROVIDER"
+
+processes :
+  - processId : "WATER_LEVEL"
+    name : "manage the water level"
+    description : "Manage the water level"
+
+    inputVariables:
+     - variableId : "LEVEL"
+       name : "Water level sensor"
+       description: "Hall effect sensor false if water below high level"
+       type: "BooleanType"
+       metricFlow :
+         nodeName: "WATER_PUMPS_NODE"
+         metricName: "/Sensors/High Water/State"
+
+     - variableId : "REFILL"
+       name : "Refill amount"
+       description: "quantity of water to replenish"
+       type: "DoubleType"
+       sharedFlow:
+         processId : "STATE_MANAGEMENT"
+         variableId : "EC_DOWN"
+
+    outputVariables:
+     - variableId: "WATER_IN"
+       name: "Water in"
+       description : "Water in pump or valve"
+       type : "BooleanType"
+       metricFlow :
+         nodeName : "WATER_PUMPS_NODE"
+         metricName : "/Control/Water In/State"
+
+     - variableId: "WATER_OUT"
+       name: "Water out"
+       description: "Water out pump or valve"
+       type: "BooleanType"
+       metricFlow :
+         nodeName: "WATER_PUMPS_NODE"
+         metricName: "/Control/Water Out/State"
+
+  - processId : "LIGHTING"
+    name : "Lighting"
+    description : "Turn the grow-lights on and off"
+
+    inputVariables :
+      - variableId: "STATE"
+        name: "lights state"
+        description: "Light states on/off"
+        type: "BooleanType"
+        valueProvider : "SETPOINT_PROVIDER"
+
+    outputVariables :
+      - variableId: "LIGHTS"
+        name : "lights"
+        description : "Turn on the grow-lights on and off"
+        type: "BooleanType"
+        metricFlow :
+          nodeName: "LIGHTS_CONTROLLER"
+          metricName: "/Relays/Relay 1/State"
+
+  - processId : "CIRCULATION_PUMP"
+    name : "Circulation Pump"
+    description : "Turn on the circulation pump on and off"
+
+    inputVariables:
+      - variableId: "STATE"
+        name: "Circulation pump state"
+        description: "Circulation pump on/off"
+        type: "BooleanType"
+        valueProvider : "SETPOINT_PROVIDER"
+
+    outputVariables :
+      - variableId: "CIRCULATION"
+        name : "circulation"
+        description : "Turn the circulation pump on and off"
+        type: "BooleanType"
+        metricFlow :
+          nodeName: "WATER_PUMPS_NODE"
+          metricName: "/Control/Circulation/State"
+
+  - processId : "STATE_MANAGEMENT"
+    name : "State management"
+    description : "Management of nutrients, pH and water level"
+
+    inputVariables :
+      - variableId : "PH"
+        name : "ph"
+        description: "Control of the pH of the water"
+        type: "DoubleType"
+        metricFlow :
+          nodeName: "WATER_CONTROL_NODE"
+          metricName: "/Sensors/PH/Value"
+
+      - variableId : "PH_SETPOINT"
+        name : "ph setpoint"
+        description: "ph setpoint value"
+        type: "DoubleType"
+        valueProvider : "SETPOINT_PROVIDER"
+
+      - variableId: "EC"
+        name : "ec"
+        description : "Control of the amount of nutrient in the water"
+        type: "DoubleType"
+        metricFlow :
+          nodeName: "WATER_CONTROL_NODE"
+          metricName: "/Sensors/EC/Value"
+
+      - variableId: "TEMP"
+        name : "temperature"
+        description : "Water temperature"
+        type: "DoubleType"
+        metricFlow :
+          nodeName: "WATER_CONTROL_NODE"
+          metricName: "/Sensors/RTD/Value"
+
+      - variableId: "EC_SETPOINT"
+        name : "ec setpoint"
+        description : "EC setpoint valuer"
+        type: "DoubleType"
+        metricFlow :
+          nodeName: "WATER_CONTROL_NODE"
+          metricName: "/Sensors/EC/Value"
+
+    outputVariables:
+      - variableId: "PH_UP"
+        name : "ph-up"
+        description : "Dosing pump to add alkali to increase the pH "
+        type : "Int64Type"
+        metricFlow :
+          nodeName: "WATER_CONTROL_NODE"
+          metricName: "/Dosers/PH Up/Volume"
+
+      - variableId: "PH_DOWN"
+        name : "ph-down"
+        description : "Dosing pump to add acid to decrease the pH"
+        type : "Int64Type"
+        metricFlow :
+          nodeName: "WATER_CONTROL_NODE"
+          metricName: "/Dosers/PH Down/Volume"
+
+      - variableId: "EC_UP"
+        name : "ec-up"
+        description : "Dosing pump to add nutrient"
+        type : "Int64Type"
+        metricFlow :
+          nodeName: "WATER_CONTROL_NODE"
+          metricName: "/Dosers/EC Up/Volume"
+
+      - variableId: "EC_DOWN"
+        name: "ec-down"
+        description: "Use the Water level management to add fresh water"
+        type: "Int64Type"
+        sharedFlow:
+          processId: "WATER_LEVEL"
+          variableId: "REFILL"

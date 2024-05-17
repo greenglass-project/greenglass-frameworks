@@ -1,3 +1,11 @@
+/******************************************************************************
+ *  Copyright 2024 Greenglass Project
+ *
+ *  Use of this source code is governed by an MIT-style
+ *  license that can be found in the LICENSE file or at
+ *  https://opensource.org/licenses/MIT.
+ *
+ *****************************************************************************/
 package io.greenglass.node.core.devicedriver
 
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -15,6 +23,7 @@ abstract class DriverModule(val name : String,
                             val persistence : PersistenceService,
                             val webService : WebService,
                             val backgroundScope : CoroutineScope) {
+
     protected val writersMap : HashMap<String, WriteMetricFunction> = hashMapOf()
 
     abstract suspend fun initialise()
@@ -33,9 +42,9 @@ abstract class DriverModule(val name : String,
         func.write(value)
     }
 
-    val valueFlow = MutableSharedFlow<List<io.greenglass.node.core.devicedriver.DriverFunctionMetricValue>>(1)
+    val valueFlow = MutableSharedFlow<List<DriverFunctionMetricValue>>(1)
 
-    abstract suspend fun readAllMetrics() : List<io.greenglass.node.core.devicedriver.DriverFunctionMetricValue>
+    abstract suspend fun readAllMetrics() : List<DriverFunctionMetricValue>
     open fun startUpdates() {}
     open fun stopUpdates() {}
 }

@@ -113,8 +113,8 @@ class NatsService(url: String, modules: List<SimpleModule>?) {
      * 3. The result is success and data is an object - publish success with the object as JSON
      * 4. The result is error - publish an error with error code and message
      *
-     * @param T
-     * @param topic
+     * @param T the published value's type (when Success)
+     * @param topic the
      * @param result
      */
     inline fun <reified T> publish(topic: String, result: Result<T>) {
@@ -137,7 +137,7 @@ class NatsService(url: String, modules: List<SimpleModule>?) {
             }
 
             is Failure -> {
-                publishFailure(topic, result.code, result.msg)
+                publishFailure(topic, result.code, result.param)
             }
         }
     }

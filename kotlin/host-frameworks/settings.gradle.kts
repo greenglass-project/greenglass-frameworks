@@ -1,9 +1,7 @@
-rootProject.name = "kotlin-frameworks"
+rootProject.name = "host-frameworks"
 
 include("host-application")
 include("host-control")
-include("host-sparkplug")
-include("sparkplug")
 
 
 pluginManagement {

@@ -21,7 +21,7 @@ kotlin {
 
 publishing {
     publications {
-        create<MavenPublication>("-control") {
+        create<MavenPublication>("host-control") {
             from(components["java"])
             artifact(sourcesJar)
         }
@@ -29,11 +29,21 @@ publishing {
 }
 
 dependencies {
-    implementation(project(":sparkplug"))
-    implementation(project(":host-sparkplug"))
-    implementation(project(":host-application"))
     implementation(libs.kotlin.stdlib)
+    implementation(libs.kotlin.reflect)
     implementation(libs.kotlin.coroutines)
     implementation(libs.kotlin.logging)
+    implementation(libs.jackson.core)
+    implementation(libs.jackson.kotlin)
+    implementation(libs.jackson.jsr310)
     implementation(libs.tahu)
+    implementation(libs.hivemq)
+    implementation(libs.commons.math3)
+    implementation(libs.google.guava)
+    implementation(libs.tahu)
+    implementation(libs.javalin)
+    implementation(libs.ktor.client)
+    implementation(libs.ktor.client.core)
+    implementation(libs.ktor.client.cio)
+
 }

@@ -1,5 +1,5 @@
 /******************************************************************************
- *  Copyright 2023 Steve Hopkins
+ *  Copyright 2024 Greenglass Project
  *
  *  Use of this source code is governed by an MIT-style
  *  license that can be found in the LICENSE file or at
@@ -36,10 +36,11 @@ import io.greenglass.node.sparkplug.SparkplugHandler
  * @property backgroundScope
  */
 class ApplicationService(private val configDirectory : String,
-                       private val persistence : PersistenceService,
-                       private val drivers : DriversService,
-                       private val webService: WebService,
-                       private val backgroundScope : CoroutineScope
+                         private val persistence : PersistenceService,
+                         private val drivers : DriversService,
+                         private val webService: WebService,
+                         private val mdnsService: MdnsService,
+                         private val backgroundScope : CoroutineScope
     ) : BdSeqProvider, NoCoLogging {
 
     private val nodeIdKey = "nodeId"
@@ -99,7 +100,7 @@ class ApplicationService(private val configDirectory : String,
                 )))
         }
 
-
+        mdnsService.run(nodeId)
         backgroundScope.launch {
             sparkplugHandler.run()
         }

@@ -1,7 +1,0 @@
-.gradle
-.idea
-.DS_Store
-.gitattributes
-build
-site/
-mkdocs.yaml

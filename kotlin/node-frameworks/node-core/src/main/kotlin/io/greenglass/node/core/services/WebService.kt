@@ -1,3 +1,11 @@
+/******************************************************************************
+ *  Copyright 2024 Greenglass Project
+ *
+ *  Use of this source code is governed by an MIT-style
+ *  license that can be found in the LICENSE file or at
+ *  https://opensource.org/licenses/MIT.
+ *
+ *****************************************************************************/
 package io.greenglass.node.core.services
 
 import io.javalin.Javalin
@@ -5,16 +13,15 @@ import io.javalin.http.Context
 import io.javalin.http.sse.SseClient
 import io.javalin.http.staticfiles.Location
 import io.javalin.websocket.WsContext
-import io.javalin.websocket.WsMessageContext
 import io.klogging.NoCoLogging
+import org.eclipse.jetty.websocket.api.Session
+import java.util.concurrent.ConcurrentLinkedQueue
+
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import kotlinx.serialization.Serializable
-import kotlinx.serialization.encodeToString
-import kotlinx.serialization.json.Json
-import org.eclipse.jetty.websocket.api.Session
-import java.util.concurrent.ConcurrentLinkedQueue
+
 
 @Serializable class StringValue(val value:String)
 @Serializable class IntValue(val value:Int)

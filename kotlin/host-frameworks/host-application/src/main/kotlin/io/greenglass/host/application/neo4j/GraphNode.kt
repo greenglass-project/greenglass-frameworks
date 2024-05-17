@@ -4,5 +4,9 @@ import org.neo4j.graphdb.Node
 import org.neo4j.graphdb.Transaction
 
 interface GraphNode {
-    fun toNode(tx : Transaction) : Node
+    fun persist(tx : Transaction) : Node
+
+    companion object {
+        val singleton = "singleton"
+    }
 }

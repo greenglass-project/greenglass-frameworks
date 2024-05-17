@@ -4,7 +4,6 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import com.influxdb.client.domain.WritePrecision
 import com.influxdb.client.write.Point
-import io.greenglass.sparkplug.datatypes.NodeMetricNameValue
 import kotlinx.coroutines.flow.filter
 
 
@@ -20,7 +19,7 @@ fun Point.addAnyField(field : String, value : Any) : Point {
     return this
 }
 
-suspend inline fun  Flow<NodeMetricNameValue>.toTimeLine(client: InfluxDbService) =
+/*suspend inline fun  Flow<NodeMetricNameValue>.toTimeLine(client: InfluxDbService) =
     filter { e -> e.value.value != null }
         .map { m -> Point
                 .measurement(m.metricName)
@@ -33,7 +32,7 @@ suspend inline fun  Flow<NodeMetricNameValue>.toTimeLine(client: InfluxDbService
             .getWriteKotlinApi()
             .writePoint(p)
         }
-
+*/
 
 
 

@@ -17,6 +17,7 @@ import com.fasterxml.jackson.databind.deser.std.StdDeserializer
 import com.fasterxml.jackson.databind.module.SimpleModule
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.transform
+import kotlinx.serialization.Serializable
 import org.eclipse.tahu.message.model.MetaData
 import org.eclipse.tahu.message.model.Metric
 import org.eclipse.tahu.message.model.MetricDataType

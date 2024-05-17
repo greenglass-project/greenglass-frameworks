@@ -21,9 +21,9 @@ kotlin {
 }
 
 val sourcesJar by tasks.creating(Jar::class) {
-    archiveClassifier.value("sources")
+    archiveClassifier.set("sources")
+    from(sourceSets.getByName("main").allSource)
 }
-
 publishing {
     publications {
         create<MavenPublication>("host-application") {
@@ -33,8 +33,11 @@ publishing {
     }
 }
 
+tasks.withType<Test>().configureEach {
+    useJUnitPlatform()
+}
+
 dependencies {
-    implementation(project(":sparkplug"))
     implementation(libs.kotlin.stdlib)
     implementation(libs.kotlin.coroutines)
     implementation(libs.kotlin.logging)
@@ -49,5 +52,10 @@ dependencies {
     implementation(libs.settings)
     implementation(libs.javalin)
     implementation(libs.jpy)
+    implementation(libs.javalin)
+
+    testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.9.2")
+    testImplementation("org.assertj:assertj-core:3.25.3")
 
 }
