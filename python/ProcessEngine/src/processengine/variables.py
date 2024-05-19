@@ -1,6 +1,15 @@
-import logging
+# ******************************************************************************
+#  Copyright 2024 Greenglass Project
+#
+#  Use of this source code is governed by an MIT-style
+#  license that can be found in the LICENSE file or at
+#  https://opensource.org/licenses/MIT.
+#
+# *****************************************************************************/
 import asyncio
 import functools
+import logging
+
 from . import sync_variable_value
 from . import variable_value_message
 from asyncio import get_running_loop

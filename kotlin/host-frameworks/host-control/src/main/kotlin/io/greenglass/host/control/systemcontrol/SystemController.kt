@@ -1,3 +1,11 @@
+/******************************************************************************
+ *  Copyright 2024 Greenglass Project
+ *
+ *  Use of this source code is governed by an MIT-style
+ *  license that can be found in the LICENSE file or at
+ *  https://opensource.org/licenses/MIT.
+ *
+ *****************************************************************************/
 package io.greenglass.host.control.systemcontrol
 
 import io.github.oshai.kotlinlogging.KotlinLogging
@@ -16,22 +24,6 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-/**
- * FlowManager
- *
- *  Constructs and binds the flows and
- *  provides an interface tp access them by
- *
- *  + Process Id
- *  + Direction
- *  + Variable Id
- *
- *  This is independent of the underlying implementation
- *
- * @property systemDefinition
- * @property wsServer
- * @property sparkplug
- */
 class SystemController(private val definition : SystemDefinition,
                        private val nodeTypes : List<NodeType>,
                        private val nodeIds : List<EonNodeId>,
