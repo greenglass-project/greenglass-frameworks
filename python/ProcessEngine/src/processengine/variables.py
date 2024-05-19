@@ -1,8 +1,8 @@
 import logging
 import asyncio
 import functools
-from sync_variable_value import SyncVariableValue
-from variable_value_message import VariableValueMessage
+from . import sync_variable_value
+from . import variable_value_message
 from asyncio import get_running_loop
 
 import rx
@@ -54,6 +54,7 @@ class Variables:
         self.output_variables = {}
         self.websocket = None
 
+    async def start(self):
         for process in self.processes:
             process_id = process["processId"]
             input_variable_map = {}
@@ -65,7 +66,7 @@ class Variables:
             # Create a map of process_id/variable_id to observable
             # for input variables
             for variable in process["inputVariables"]:
-                sync_value = SyncVariableValue()
+                sync_value = sync_variable_value.SyncVariableValue()
                 input_variable_map[variable["variableId"]] = ObservableCtx(
                     sync_value, # setting this triggers the observable
                     create_observable(sync_value, get_running_loop()) # the observable
@@ -108,7 +109,7 @@ class Variables:
             raise VariableNotFoundError("Variable for " + process_id + " " + variable_id + " not found")
 
         # Create a V
-        message = VariableValueMessage(process_id, variable_id, type, value)
+        message = variable_value_message.VariableValueMessage(process_id, variable_id, type, value)
 
         # if the websocket is active send the message
         if self.websocket is not None:

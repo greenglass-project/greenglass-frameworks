@@ -39,6 +39,7 @@ class ProcessEngineClient(val hostname : String,
         coroutineScope.launch {
             while (true) {
                 try {
+                    logger.debug { "Connecting to engine on '$hostname:$port"}
                     client.webSocket(
                         method = HttpMethod.Get,
                         host = hostname,

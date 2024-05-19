@@ -62,7 +62,7 @@ class WebService(private val port : Int,
         }*/
 
     init {
-        logger.debug { "Starting WebService port = $port root = $contextRoot"}
+        logger.debug { "Starting WebService port = '$port' root = '$contextRoot'"}
         javalin.ws(subscribeEndpoint) { ws ->
             ws.onConnect { ctx ->
                 logger.info { "Adding client ${ctx.session.hashCode()}" }
